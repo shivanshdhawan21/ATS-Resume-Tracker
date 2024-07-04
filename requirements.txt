@@ -1,0 +1,7 @@
+Flask
+Jinja2
+google-generativeai
+python-dotenv
+langchain
+PyPDF2
+langchain_google_genai

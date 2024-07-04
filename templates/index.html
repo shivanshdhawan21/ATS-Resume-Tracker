@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATS Resume Tracker</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div class="container">
+        <div style="color: rgb(12, 94, 247); font-size: 40px; font-weight: bold;">Welcome to ATS Resume Tracker</div>
+        <form method="post" action="/predict" enctype="multipart/form-data">
+            <div class="input">
+                <div class="top">
+                    <label>*Job Description:</label>
+                    <textarea rows="3" cols="80" name="input_jd" placeholder="Enter Job Description to match" required></textarea>
+                    <label for="pdf_file" style="margin-bottom: 20px;padding-top: 50px;">*Upload your Resume:</label>
+                    <input type="file" id="pdf_file" name="pdf_file" accept=".pdf" required>
+                    <div style="display:flex; justify-content: space-around;padding: 20px;">
+                        <button type="submit" name="button" value="abt_resume" class="btn">Tell Me About the Resume</button>
+                        <button type="submit" name="button" value="resume_score" class="btn">Resume Score</button>
+                        <button type="submit" name="button" value="improve" class="btn">How to Improvise my Skills</button>
+                    </div>
+                </div>
+                <div class="down">
+                    <label>Or for specific question</label>
+                    <textarea rows="3" cols="80" name="input_question" placeholder="Type your question here...." style="font-weight:normal; border-radius: 8px; margin-top: 20px; padding: 10px 10px;"></textarea>
+                    <div style="display: flex; justify-content: center;">
+                        <button type="submit" name="button" value="answer" class="btn">Answer</button>
+                    </div>
+                </div>
+                {% if result %}
+                    <div rows="20" cols="80">{{result|safe}}</div>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+</body>
+</html>
